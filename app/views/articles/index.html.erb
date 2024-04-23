@@ -1,16 +1,32 @@
-<h1>Articles</h1>
-
-<p><i>This blog has <strong><%= Article.public_count %></strong> articles and counting!</i></p>
-
-<ul>
-  <% @articles.each do |article| %>
-    <% unless article.archived? %>
-        <li>
-        <%= link_to article.title, article %>
+<div>
+  <div>
+    <h1 class="text-4xl font-bold mb-4">Articles</h1>
+    <p class="italic mb-8">
+    This blog has
+    <strong class="font-semibold"><%= Article.public_count %></strong>
+    articles and counting!
+    </p>
+  </div>
+  <div>
+   <ul class="mb-8">
+    <% @articles.each do |article| %>
+      <% unless article.archived? %>
+        <li class="mb-2">
+          <%= link_to article.title, article, class: "text-indigo-600 hover:text-indigo-900" %>
         </li>
+      <% end %>
     <% end %>
-   <% end %> 
-</ul>
+  </ul>
+  </div>
+  <div>
+    <ul>
+      <li class="mb-2">
+        <%= link_to "New Article", new_article_path, class: "text-indigo-600 hover:text-indigo-900" %>
+      </li>
+      <li>
+        <%= link_to "Home", root_path, class: "text-indigo-600 hover:text-indigo-900" %>
+      </li>
+    </ul>
+  </div>
 
-<%= link_to "New Article", new_article_path %>
-<%= link_to "Home", root_path %>
+</div>
