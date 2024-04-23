@@ -1,11 +1,17 @@
 
 <div>
-<% unless comment.archived? %>
-    <p>
-        <strong>Commenter:</strong>
-        <%= comment.commenter %><br>
-        Comment:
-        <i><%= comment.body %></i>
-    </p>
-<% end %>
+    <% unless comment.archived? %>
+        <p>
+            <strong>Commenter:</strong>
+            <%= comment.commenter %><br>
+            Comment:
+            <i><%= comment.body %></i>
+        </p>
+        <p>
+            <%= link_to "Destroy Comment", [comment.article, comment], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %>
+        </p>
+    <% end %>
 </div>
