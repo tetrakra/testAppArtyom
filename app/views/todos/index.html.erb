@@ -1,16 +1,13 @@
-<div>
+<div class="mx-auto w-2/3 bg-gray-50">
   <div>
     <p class="text-green-500"><%= notice %></p>
-    <h1 class="text-4xl font-bold mb-8">Todos</h1>
+    <h1 class="text-4xl font-bold text-indigo-600 mb-8">Your Todos</h1>
   </div>
 
-  <div id="todos" class="grid grid-cols-1 gap-8">
-    <% @todos.each do |todo| %>
-      <%= render todo %>
-      <p class="mt-4">
-        <%= link_to "Show this todo", todo, class: "text-indigo-600 hover:text-indigo-900" %>
-      </p>
-    <% end %>
+  <div class="grid grid-cols-1 gap-8 py-8 px-12 border rounded shadow-md">
+    <ul id="todos">
+      <%= render @todos %>
+    </ul>
   </div>
   <div>
     <ul class="mt-8">

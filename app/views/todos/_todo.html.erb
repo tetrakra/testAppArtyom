@@ -1,12 +1,11 @@
-<div id="<%= dom_id todo %>">
-  <p>
-    <strong>Name:</strong>
+
+<li class="py-2 px-4 border-b border-gray-300" id="<%= "#{dom_id(todo)}_container" %>">
+
+  <div class="flex justify-between items-center space-x-2">
     <%= todo.name %>
-  </p>
+     <%= button_to todo_path(todo), class: "bg-blue-300 px-4 py-2 rounded hover:bg-red-500", method: :delete do %>
+        <span><p class="color-slate-900">Done</p></span>
+      <% end %>
+  </div>
+</li>
 
-  <p>
-    <strong>Status:</strong>
-    <%= todo.status %>
-  </p>
-
-</div>
